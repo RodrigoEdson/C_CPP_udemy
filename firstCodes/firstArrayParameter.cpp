@@ -5,7 +5,12 @@ using namespace std;
 int *initArray(int s)
 {
     int *p;
-    p = (int *)malloc(s * sizeof(int));
+    //p = (int *)malloc(s * sizeof(int));
+    p = new int[s];
+
+    for (int i = 0; i < s; i++)
+        p[i] = i + 1;
+
     return p;
 }
 
@@ -16,9 +21,9 @@ void setValue(int a[], int n)
 
 int main(int argc, char const *argv[])
 {
-    int a[] = {1, 2, 3, 4, 5};
-    for (int x : a)
-        cout << x << " ";
+    int *a = initArray(5);
+    for (int i = 0; i < 5; i++)
+        cout << a[i] << " ";
     cout << endl;
 
     setValue(a, 2);
