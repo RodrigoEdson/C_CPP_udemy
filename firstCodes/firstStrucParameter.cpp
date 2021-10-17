@@ -26,11 +26,14 @@ int main(int argc, char const *argv[])
     printf("Area: %d\n", areaByValue(lR));
     printf("After area by value -> Length: %d, Breadth: %d\n", lR.length, lR.breadth);
 
-    lR = {10, 15};
+    //struct Rectangle *plR = (struct Rectangle *)malloc(sizeof(Rectangle));
+    struct Rectangle *plR = new Rectangle;
+    plR->length = 10;
+    plR->breadth = 15;
 
-    printf("\nBefor area by refrence -> Length: %d, Breadth: %d\n", lR.length, lR.breadth);
-    printf("Area: %d\n", areaByReference(&lR));
-    printf("After area by reference -> Length: %d, Breadth: %d\n", lR.length, lR.breadth);
+    printf("\nBefor area by refrence -> Length: %d, Breadth: %d\n", plR->length, plR->breadth);
+    printf("Area: %d\n", areaByReference(plR));
+    printf("After area by reference -> Length: %d, Breadth: %d\n", plR->length, plR->breadth);
 
     return 0;
 }
