@@ -10,6 +10,8 @@ int main(int argc, char const *argv[])
 
     // C
     p = (int *)malloc(5 * sizeof(int));
+    //C++
+    p = new int [5];
     p[0] = 3;
     p[1] = 2;
     p[2] = 9;
