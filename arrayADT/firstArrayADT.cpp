@@ -209,6 +209,18 @@ float avg(struct Array arr)
     return (float) sum(arr) / arr.length;
 }
 
+void reverseArray (struct Array * arr) {
+    int i = 0, j = arr->length-1, temp;
+
+    while (i < j){
+        temp = arr->A[i];
+        arr->A[i]= arr->A[j];
+        arr->A[j] = temp;
+        i++;
+        j--;
+    }
+}
+
 int main(int argc, char const *argv[])
 {
 
@@ -255,6 +267,9 @@ int main(int argc, char const *argv[])
     set(&arr,2,10);
     printArray(arr);
 
+    reverseArray(&arr);
+    printf("After reverse:\n");
+    printArray(arr);
 
     return 0;
 }
