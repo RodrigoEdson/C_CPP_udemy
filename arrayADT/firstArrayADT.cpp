@@ -59,6 +59,13 @@ void insertArray(struct Array *arr, int index, int x)
         printf("Insert not allowed\n");
 }
 
+void swapEements(int *fromIndex, int *toIndex)
+{
+    int temp = *fromIndex;
+    *fromIndex = *toIndex;
+    *toIndex = temp;
+}
+
 int deleteArray(struct Array *arr, int index)
 {
     if (index >= 0 && index <= arr->length)
@@ -71,6 +78,23 @@ int deleteArray(struct Array *arr, int index)
     }
     else
         return 0;
+}
+
+int linearSearch(struct Array *arr, int key)
+{
+    for (int i = 0; i < arr->length; i++)
+        if (key == arr->A[i])
+        {
+            // keep searched elementes in the begining of the array
+            // swapEements(&arr->A[i], &arr->A[0]);
+            // return 0;
+
+            // Promote the searched elemente one position to the beginning of the array
+            swapEements(&arr->A[i], &arr->A[i - 1]);
+            return i - 1;
+        }
+
+    return -1;
 }
 
 int main(int argc, char const *argv[])
@@ -94,6 +118,12 @@ int main(int argc, char const *argv[])
 
     printf("Position 3 element with value %d has been deleted\n", deleteArray(&arr, 3));
     printf("After delete:\n");
+    printArray(arr);
+
+    printf("Key 12 is in %d position\n", linearSearch(&arr, 12));
+    printf("Key 12 is in %d position\n", linearSearch(&arr, 12));
+    printf("Key 12 is in %d position\n", linearSearch(&arr, 12));
+    printf("After Search:\n");
     printArray(arr);
 
     return 0;
