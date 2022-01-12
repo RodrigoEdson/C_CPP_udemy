@@ -12,8 +12,7 @@ char *readName()
     // name = new char [50];
 
     printf("Enter your Name: ");
-    // scanf("%s", name);
-    gets(name);
+    scanf("%s", name);
 
         return name;
 }
